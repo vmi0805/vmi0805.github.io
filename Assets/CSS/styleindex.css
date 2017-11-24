@@ -1,6 +1,10 @@
 
 /* Start the contact page */
 
+.container{
+  width:960px;
+}
+
 body{
   width:960px;
   background-color:rgba(128,128,128,0.22);
@@ -13,15 +17,8 @@ body{
   color: white;
   background: blue;
   border: 4px solid blue;
-  float:left;
   width:300px;
   text-align: center;
-}
-
-#middle{
-  width:300px;
-  display:inline-block;
-  background-color: white;
 }
 
 #btn-group {
@@ -39,14 +36,12 @@ body{
 #main-bio{
   width: 550px;
   height:500px;
-  overflow: auto;
   background-color: orange;
+  float:left;
   margin-top: 10px;
-  position:fixed;
 }
 
 #connect-box{
-  display:inline-block;
   width:348px;
   height:125px;
   float:right;
@@ -56,29 +51,28 @@ body{
   text-align:center;
 }
 
-.connect-title{
+/*.connect-title{
   font-weight: bold;
   text-align: center;
   font-size: 16px;
-}
+}*/
 
 h2{
   font-size: 16px;
   background-color: white;
   padding: 10px 10px 10px 10px;
   text-align: center;
-  display:block;
   position:relative;
-  left:25px;
+  left:15px;
   top:10px;
   width:295px;
   height: 20px;
-  float:left;
-  margin:4px;
+/*  float:left;*/
+/*  margin:4px;*/
   font-weight: bold;
 }
 
-h3{
+/*h3{
   font-size: 16px;
   background-color: white;
   padding: 10px 10px 10px 10px;
@@ -89,13 +83,13 @@ h3{
   height:20px;
   margin: 4px;
   display:inline-block;
-}
+}*/
 
 #bio-image{
   width:150px;
   height:auto;
-  margin:4px;
-  display:inline-block;
+  margin:16px;
+/*  display:inline-block;*/
   border: 10px solid white;
   float:right;
   position:relative;
@@ -112,48 +106,36 @@ h3{
 #p01{
   text-align:left;
   float:left;
-  margin:10px;
+  margin:4px;
   padding:20px 20px 20px 20px;
-  position: absolute;
+  position: relative;
   right: -30px;
   left:0px;
   bottom: 0;
-  top:40px;
+  top:0px;
   width: 295px;
   padding: 20px;
 }
 
 /* Start the contact page */
 
-.connect-box{
-    width: 550px;
-    height:500px;
-    overflow: auto;
-    background-color: orange;
-    margin-top: 10px;
-    position:fixed;
-    float:right;
+/*640 to 768*/
+
+@media (max-width: 768px){
+  #btn-group{float:none; display: block;}
+  #connect-box{float:none;}
+  #main-bio{float:none; display:block; width:348px; height:auto;}
+  #p01{width:90%; float:none; display: block; margin-top: 6px; margin: 6px 16px 0px 0px;}
+  #bio-image{float:left;top:12px; padding: 6px 6px 6px 6px; left:12px; right: 2px;}
+  h2{width:75%;}
+
+  /*0 to 640*/
+
+@media (max-width: 640px){
+  #btn-group{float:none; display: block;}
+  #connect-box{float:none; display: inline-block;}
+  #main-bio{float:none; display:block; overflow:auto;}
+  #p01{float:left; display: block;}
+  #bio-image{float:left;}
+  #p01{margin:6px;}
 }
-
-#fnmae{
-
-}
-
-#lname{
-
-}
-
-#msg{
-
-}
-
-#submit{
-  
-}
-
-
-
-.clearfix::after{
-    content:"";
-    display:block;
-    clear:both;

@@ -122,3 +122,17 @@ input.button:hover {
   background: #fff;
   color: #09C;
 }
+
+@media (max-width: 768px){
+  #btn-group{float:none; display: block;}
+  #connect-box{float:none;}
+  #data-entry{float:none;}
+}
+
+  /*0 to 640*/
+
+@media (max-width: 640px){
+  #btn-group{float:none; display: block;}
+  #connect-box{float:none; display: inline-block;}
+  #data-entry{float:none;}
+}
