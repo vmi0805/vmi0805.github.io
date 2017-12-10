@@ -1,0 +1,127 @@
+.container{
+	position: fixed;
+}
+
+h1{
+	position:absolute;
+	margin-top: 150px;
+	margin-left: 135px;
+	color: #ff4411; 
+	font-size: 75px; 
+	font-family: 'Signika', sans-serif; 
+	z-index: 1;
+	width: 1000px;
+}
+
+#vehicles-camaro{
+/*	position: relative;*/
+	width: 500px;
+	height: 375px;
+	opacity: 0.5;
+	z-index: 0;
+	float:left;
+	display: inline;
+	border: solid white 10px;
+}
+
+#vehicles-bronco{
+/*	position: relative;*/
+	width: 500px;
+	height: 375px;
+	opacity: 0.5;
+	z-index: 0;
+	float:left;
+	display: inline;
+	border: solid white 10px;
+}
+
+.left{
+	display: inline-block;
+	float:left;
+}
+
+.right{
+	display: inline-block;
+}
+
+.right-img{
+	display: inline-block;
+}
+
+.left-img{
+	display: inline-block;
+}
+
+.game{
+	border:solid white 10px;
+	background-color: grey;
+}
+
+#mini-box-left{
+	margin-top: 23px;
+	border: solid red 6px;
+	display: block;
+	height: 513px;
+	width: 95%;
+	float:right;
+}
+
+#mini-box-right-1{
+	margin-top: 20px;
+	border: solid red 6px;
+	display: block;
+	height: 150px;
+	width: 95%;
+}
+
+#mini-box-right-2{
+	margin-top: 20px;
+	border: solid red 6px;
+	display: block;
+	height: 150px;
+	width: 95%;
+}
+
+#mini-box-right-3{
+	margin-top: 20px;
+	border: solid red 6px;
+	display: block;
+	height: 150px;
+	width: 95%;
+}
+
+p{
+	margin:auto;
+	font-size: 24px;
+	color: blue;
+	font-weight: bold;
+}
+
+.blank-div{
+	display: inline-block;
+/*	float: left;*/
+	border:solid black 2px;
+	margin:8px;
+	height:20px;
+	width: 20px;
+	margin-top: 30px;
+	text-align: center;
+}
+
+#guessesRemaining{
+	display: inline-block;
+/*	float: left;*/
+	border:solid black 2px;
+	margin:8px;
+	height:20px;
+	width: 20px;
+	margin-top: 30px;
+	text-align: center;
+}
+
+#vanhalen{
+	height: 200px;
+	width: 267px;
+	margin: auto;
+	border: solid orange 12px;
+}

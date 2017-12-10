@@ -1,43 +1,147 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About Me</title>
-    <link rel="stylesheet" type="text/css" href="Assets/CSS/reset.css">
-    <link rel="stylesheet" type="text/css" href="Assets/CSS/styleindex.css">
+  <meta charset="UTF-8">
+  <title>Muscle Car Hangman</title>
+      <link rel="stylesheet" href="Assets/css/reset.css">
+      <link rel="stylesheet" href="Assets/css/style2.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--       <script type="text/javascript" src="Assets/javascript/game.js"></script>  -->
 </head>
+
 <body>
 
-<div class="container">
+<div class ="container">
 
-	<section id="name">Kyle Makinen</section>
-	<section id="btn-group">
-		<button>About Me</button>
-		<button type="button" onclick="window.location.href='portfolio.html'">Portfolio</button>
-		<button type="button" onclick="window.location.href='contact.html'"">Contact</button>
-	</section>
+  <div class="floating-title">
+    <h1>Muscle Car Hangman</h1>
+  </div>
 
-	<div class="main">
 
-		<section id="main-bio">
-			<h2>About Me</h2>
-		<img id="bio-image" src="Assets/Images/kyle.jpg" alt="Kyle">
-			<p id="p01">"Yes, I am a pirate 200 years too late!  Kyle, a long-time Jimmy Buffett fan, can relate.  Kyle grew up near the Chesapeake Bay sailing, crabbing and spending hours on the beach. After graduating from college in 2004, Kyle joined the US Navy, serving for almost six years and and crossing the entire world by water.  Since leaving full-time sea duty in 2014, Kyle achieved two great feats for a mariner's resume: he learned to navigate by the stars and crossed a major sea by sail.  Learning these new skills required Kyle to take three and a half weeks of vacation from his new consulting job, but he was determined nevertheless.  Through completion of his long journey, Kyle earned his Offshore Captain Certification from the American Sailing Association.  Since, however, Kyle has taken to the island of Manhattan instead.  He now works long days, all for the chance to complete another wild adventure.  Until then Kyle has been left singing, "I got to stop wishing; I got to go fishing down to rock bottom again, just a few friends, just a few friends..."</p>
-		</section>
+<!-- The game side-->
+  <div class="right">
+    <div class="right-img">
+      <img id="vehicles-camaro" src = "Assets/images/68-camaro.jpg" alt="kyle's car">
+    </div>
 
-		<section id="connect-box">Connect with me
-			<div class="connect-title">
-				<a href="https://www.linkedin.com/in/kyle-makinen-92399557/">
-  					<img src="Assets/Images/linkedin.png" alt="LinkedIn" style="width:75px;height:75px;border:0;margin:10px">
-				</a>
-			</div>
-		</section>	
-	</div>
+    <div id="game">
+
+<!-- Word blanks-->
+      <div id="mini-box-right-1">
+        <p>Word to guess</p>
+      </div>
+
+<!-- Guesses remaining-->
+      <div id="mini-box-right-2">
+        <p>Guesses remaining</p>
+        <div id="guessesRemaining"></div>
+      </div>
+
+<!-- Letters guessed-->
+      <div id="mini-box-right-3">
+        <p>Wrong letters guessed</p>
+      </div>
+
+    </div>
+  </div>
+
+<!-- Display image on this side after the game is won or lost-->
+  <div class="left">
+    <div id="left-img">
+      <img id="vehicles-bronco" src = "Assets/images/72-bronco.jpg" alt="kyle's old truck">
+    </div>
+
+    <div id="game">
+
+      <div id="mini-box-left">
+      </div>
+
+    </div>
+  </div>
 
 </div>
 
+
+<script>
+
+// Pick the word for the user to guess
+  let wordG = ""
+
+  function randomWord(){
+    let randomNumber = Math.floor(Math.random()*10)
+    // console.log(randomNumber)
+    if(randomNumber<5){
+      wordG = "motor"
+    } else{
+      wordG = "exhaust"
+    }
+  }
+  window.addEventListener("load", randomWord());
+
+
+// Update the number of blanks
+  
+  const wordtoGuess = $("#mini-box-right-1");
+
+  for (let i=0; i<wordG.length; i++){
+    const newLetter = $("<div>"+"</div>");
+    $(newLetter).addClass("blank-div");
+    $(newLetter).attr('id', 'letter-'+i);
+    wordtoGuess.append(newLetter);
+  }
+
+/// Guess letters to try to win
+
+  window.addEventListener("keyup", checkGuess);
+
+  let guessCounterWrong = 0;
+  let guessCounterRight = 0;
+  function checkGuess(event) {
+    console.log(event.key);
+    const matchedIndices = [];
+    for(let i = 0; i < wordG.length; i++) {
+      if(wordG[i] === event.key) {
+        matchedIndices.push(i);
+        console.log(matchedIndices[i]);
+        $('#letter-'+i).html(event.key);
+      }
+      if(wordG[i] !== event.key){
+      }
+    }
+  }
+
+// add wrong letters to bottom the same way I did based on the word selected - I need to finish this section after I fix the game ending section below
+
+
+// game ending
+
+    // // Wrong counter function
+    // let wrongCounterNum = 0;
+    // function wrongCounter(){
+    //   wrongCounterNum++;
+    //   console.log(wrongCounterNum);
+    //       if(wrongCounterNum == 6) {
+    //       // $(".mini-box-left").append("<img id="vanhalen" src="Assets/images/vanhalen.jpg" alt="did not work">");
+    //       alert("You lose.");
+    //       }
+    // }
+
+    // Right counter function
+    // let rightCounterNum = 0;
+    // function rightCounter(){
+    //   rightCounterNum = rightCounterNum + 1;
+    //   console.log(rightCounterNum);
+    //       if(rightCounterNum == wordG.length) {
+    //       // $(".mini-box-left").append("<img id="vanhalen" src="Assets/images/vanhalen.jpg" alt="did not work">");
+    //       alert("You win.");
+    //       }
+    // }
+
+
+</script>
+
+
 </body>
+
 </html>
-
-
