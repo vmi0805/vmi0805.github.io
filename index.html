@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="Assets/css/reset.css">
       <link rel="stylesheet" href="Assets/css/style2.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--       <script type="text/javascript" src="Assets/javascript/game.js"></script>  -->
+<!--       <script type="text/javascript" src="Assets/javascript/game.js"></script> -->
 </head>
 
 <body>
@@ -97,47 +97,50 @@
 
   let guessCounterWrong = 0;
   let guessCounterRight = 0;
+  let maxguesses = 6
+  const matchedIndices = [];
   function checkGuess(event) {
     console.log(event.key);
-    const matchedIndices = [];
+
+    if(wordG.indexOf(event.key) === -1){
+      guessCounterWrong++;
+      console.log(guessCounterWrong);
+      maxguesses--;
+      $("#guessesRemaining").text(maxguesses);
+      checkloss();
+      adddiv();
+    }
+
     for(let i = 0; i < wordG.length; i++) {
       if(wordG[i] === event.key) {
         matchedIndices.push(i);
-        console.log(matchedIndices[i]);
+        // console.log(matchedIndices);
         $('#letter-'+i).html(event.key);
+        checkwin();
       }
-      if(wordG[i] !== event.key){
-      }
+
     }
   }
 
-// add wrong letters to bottom the same way I did based on the word selected - I need to finish this section after I fix the game ending section below
+  const guessesRemaining = 7
+  function checkloss(){
+    if(guessCounterWrong === 6){
+      alert("You lose.");
+    }   
+  }
 
-
-// game ending
-
-    // // Wrong counter function
-    // let wrongCounterNum = 0;
-    // function wrongCounter(){
-    //   wrongCounterNum++;
-    //   console.log(wrongCounterNum);
-    //       if(wrongCounterNum == 6) {
-    //       // $(".mini-box-left").append("<img id="vanhalen" src="Assets/images/vanhalen.jpg" alt="did not work">");
-    //       alert("You lose.");
-    //       }
-    // }
-
-    // Right counter function
-    // let rightCounterNum = 0;
-    // function rightCounter(){
-    //   rightCounterNum = rightCounterNum + 1;
-    //   console.log(rightCounterNum);
-    //       if(rightCounterNum == wordG.length) {
-    //       // $(".mini-box-left").append("<img id="vanhalen" src="Assets/images/vanhalen.jpg" alt="did not work">");
-    //       alert("You win.");
-    //       }
-    // }
-
+  const song = new Audio("Assest/images/running.mp3");
+  function checkwin(){
+    if (matchedIndices.length == wordG.length){
+      $("#mini-box-left").html('<div id="vanhalen"><img src="Assets/images/vanhalen.jpg" height="236" width="450" margin="auto"></div>');
+      alert("You win.");
+      song.play();
+    }
+  }
+  
+  function adddiv(){
+    $('#mini-box-right-3').append(event.key);  
+  }
 
 </script>
 

@@ -120,8 +120,10 @@ p{
 }
 
 #vanhalen{
-	height: 200px;
-	width: 267px;
+/*	height: 75px;
+	width: 75px;*/
 	margin: auto;
-	border: solid orange 12px;
+	float:left;
+	position: absolute;
+/*	border: solid orange 12px;*/
 }
